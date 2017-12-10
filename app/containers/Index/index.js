@@ -34,6 +34,14 @@ export class Index extends React.PureComponent { // eslint-disable-line react/pr
     this.props.pushTo('/dealer');
   }
 
+  pushToAgent = () => {
+    this.props.pushTo('/agent');
+  }
+
+  pushToPolice = () => {
+    this.props.pushTo('/police');
+  }
+
   render() {
     return (
       <Content>
@@ -46,10 +54,8 @@ export class Index extends React.PureComponent { // eslint-disable-line react/pr
               <ul>
                 <li><button onClick={this.pushToVW}>Volkswagen</button></li>
                 <li><button onClick={this.pushToDealer}>Car dealer</button></li>
-                <li><button>Agent</button></li>
-                <li><button>Cient</button></li>
-                <li><button>Insurance</button></li>
-                <li><button>Policeman</button></li>
+                <li><button onClick={this.pushToAgent}>Agent</button></li>
+                <li><button onClick={this.pushToPolice}>Policeman</button></li>
               </ul>
             </Col>
           </Row>

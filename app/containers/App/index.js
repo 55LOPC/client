@@ -17,6 +17,8 @@ import { Switch, Route } from 'react-router-dom';
 import IndexPage from 'containers/Index/Loadable';
 import Manufacturer from 'containers/Manufacturer/Loadable';
 import Dealer from 'containers/Dealer/Loadable';
+import Agent from 'containers/Agent/Loadable';
+import Police from 'containers/Police/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Content from './styles/Content';
 
@@ -27,7 +29,9 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={IndexPage} />
           <Route exact path="/vw" component={Manufacturer} />
-          <Route exact path="/dealer" component={Dealer} />
+          <Route exact path="/Dealer" component={Dealer} />
+          <Route exact path="/Agent" component={Agent} />
+          <Route exact path="/Police" component={Police} />
           <Route component={NotFoundPage} />
         </Switch>
       </Content>
