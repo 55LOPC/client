@@ -38,12 +38,15 @@ export function* manufactureCar() {
     .then((res) => (res))
     .catch((err) => (err));
 
-  yield put(manufactureCarSuccess({
-    adress: '3P48EX6fMWHDFaxqfdRvgyRF7KcC65FQdVU',
-    tx: '9FBE4szMtt5wHtghwe2Dmv3qEHX8eFmirUTjL82XxNxs',
-  }));
+  // yield put(manufactureCarSuccess({
+  //   address: '3P48EX6fMWHDFaxqfdRvgyRF7KcC65FQdVU',
+  //   tx: '9FBE4szMtt5wHtghwe2Dmv3qEHX8eFmirUTjL82XxNxs',
+  // }));
 
-  if (req.statusCode === 200) {
+
+
+  if (req.statusCode === 201) {
+    console.log(JSON.parse(req.text));
     yield put(manufactureCarSuccess(JSON.parse(req.text)));
   } else {
     yield put(manufactureCarError());

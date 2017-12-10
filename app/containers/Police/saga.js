@@ -61,7 +61,7 @@ export function* addFine() {
     tx: '9FBE4szMtt5wHtghwe2Dmv3qEHX8eFmirUTjL82XxNxs',
   }));
 
-  if (req.statusCode === 200) {
+  if (req.statusCode === 201) {
     yield put(addFineSuccess(JSON.parse(req.text)));
   } else {
     yield put(addFineError());

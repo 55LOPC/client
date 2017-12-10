@@ -114,12 +114,12 @@ export class Manufacturer extends React.PureComponent { // eslint-disable-line r
                 </Row>
                 <Row >
                   <Col lg={8}>
-                    <Panel header="Vehicle adress">
+                    <Panel header="Vehicle address">
                       {
                         this.props.manufacturer.carData === false ? 'Block generation in progress...' :
 
-                          <a href={`https://wavesexplorer.com/address/${this.props.manufacturer.carData.adress}`} target="_blank">
-                            {this.props.manufacturer.carData.adress}
+                          <a href={`https://wavesexplorer.com/address/${this.props.manufacturer.carData.address}`} target="_blank">
+                            {this.props.manufacturer.carData.address}
                           </a>
                       }
                     </Panel>
