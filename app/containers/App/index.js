@@ -15,15 +15,22 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import IndexPage from 'containers/Index/Loadable';
+import Manufacturer from 'containers/Manufacturer/Loadable';
+import Dealer from 'containers/Dealer/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import Content from './styles/Content';
 
 export default function App() {
   return (
     <div>
-      <Switch>
-        <Route exact path="/" component={IndexPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Content>
+        <Switch>
+          <Route exact path="/" component={IndexPage} />
+          <Route exact path="/vw" component={Manufacturer} />
+          <Route exact path="/dealer" component={Dealer} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Content>
     </div>
   );
 }

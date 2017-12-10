@@ -7,10 +7,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import { push } from 'react-router-redux';
+
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -19,16 +21,40 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
+import Content from './styles/Content';
+import { Grid, Row, Col, Alert } from 'react-bootstrap';
+
 export class Index extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
+  pushToVW = () => {
+    this.props.pushTo('/vw');
+  }
+
+  pushToDealer = () => {
+    this.props.pushTo('/dealer');
+  }
+
   render() {
     return (
-      <div>
-        <Helmet>
-          <title>Index</title>
-          <meta name="description" content="Description of Index" />
-        </Helmet>
-        <FormattedMessage {...messages.header} />
-      </div>
+      <Content>
+        <Grid>
+          <Row>
+            <Col><h1>Ingos Chain</h1></Col>
+          </Row>
+          <Row>
+            <Col>
+              <ul>
+                <li><button onClick={this.pushToVW}>Volkswagen</button></li>
+                <li><button onClick={this.pushToDealer}>Car dealer</button></li>
+                <li><button>Agent</button></li>
+                <li><button>Cient</button></li>
+                <li><button>Insurance</button></li>
+                <li><button>Policeman</button></li>
+              </ul>
+            </Col>
+          </Row>
+        </Grid>
+      </Content>
     );
   }
 }
@@ -44,6 +70,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
+    pushTo: (url) => dispatch(push(url)),
   };
 }
 
